@@ -23,7 +23,8 @@ def transcribe(sequence):
 # -----------------------------------------
 def translate(sequence):
 
-    return sequence.translate()
+    trimmed = sequence[:len(sequence) - (len(sequence) % 3)]
+    return trimmed.translate()
 
 
 # -----------------------------------------

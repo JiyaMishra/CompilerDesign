@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'ARROW ASSIGN COMPLEMENT GC IDENTIFIER PRINT REVERSE SEQUENCE STRING TRANSCRIBE TRANSLATE\n    program : statements\n    \n    statements : statements statement\n    \n    statements : statement\n    \n    statement : SEQUENCE IDENTIFIER ASSIGN STRING\n    \n    statement : TRANSCRIBE IDENTIFIER ARROW IDENTIFIER\n    \n    statement : TRANSLATE IDENTIFIER ARROW IDENTIFIER\n    \n    statement : REVERSE IDENTIFIER ARROW IDENTIFIER\n    \n    statement : COMPLEMENT IDENTIFIER ARROW IDENTIFIER\n    \n    statement : GC IDENTIFIER ARROW IDENTIFIER\n    \n    statement : PRINT IDENTIFIER\n    '
+_lr_signature = 'ARROW ASSIGN COMPLEMENT GC IDENTIFIER LOAD PRINT REVERSE SEQUENCE STRING TRANSCRIBE TRANSLATE\n    program : statements\n    \n    statements : statements statement\n    \n    statements : statement\n    \n    statement : SEQUENCE IDENTIFIER ASSIGN STRING\n    \n    statement : TRANSCRIBE IDENTIFIER ARROW IDENTIFIER\n    \n    statement : TRANSLATE IDENTIFIER ARROW IDENTIFIER\n    \n    statement : REVERSE IDENTIFIER ARROW IDENTIFIER\n    \n    statement : COMPLEMENT IDENTIFIER ARROW IDENTIFIER\n    \n    statement : GC IDENTIFIER ARROW IDENTIFIER\n    \n    statement : PRINT IDENTIFIER\n    \n    statement : LOAD STRING ARROW IDENTIFIER\n    '
     
-_lr_action_items = {'SEQUENCE':([0,2,3,11,18,25,26,27,28,29,30,],[4,4,-3,-2,-10,-4,-5,-6,-7,-8,-9,]),'TRANSCRIBE':([0,2,3,11,18,25,26,27,28,29,30,],[5,5,-3,-2,-10,-4,-5,-6,-7,-8,-9,]),'TRANSLATE':([0,2,3,11,18,25,26,27,28,29,30,],[6,6,-3,-2,-10,-4,-5,-6,-7,-8,-9,]),'REVERSE':([0,2,3,11,18,25,26,27,28,29,30,],[7,7,-3,-2,-10,-4,-5,-6,-7,-8,-9,]),'COMPLEMENT':([0,2,3,11,18,25,26,27,28,29,30,],[8,8,-3,-2,-10,-4,-5,-6,-7,-8,-9,]),'GC':([0,2,3,11,18,25,26,27,28,29,30,],[9,9,-3,-2,-10,-4,-5,-6,-7,-8,-9,]),'PRINT':([0,2,3,11,18,25,26,27,28,29,30,],[10,10,-3,-2,-10,-4,-5,-6,-7,-8,-9,]),'$end':([1,2,3,11,18,25,26,27,28,29,30,],[0,-1,-3,-2,-10,-4,-5,-6,-7,-8,-9,]),'IDENTIFIER':([4,5,6,7,8,9,10,20,21,22,23,24,],[12,13,14,15,16,17,18,26,27,28,29,30,]),'ASSIGN':([12,],[19,]),'ARROW':([13,14,15,16,17,],[20,21,22,23,24,]),'STRING':([19,],[25,]),}
+_lr_action_items = {'SEQUENCE':([0,2,3,12,19,28,29,30,31,32,33,34,],[4,4,-3,-2,-10,-4,-5,-6,-7,-8,-9,-11,]),'TRANSCRIBE':([0,2,3,12,19,28,29,30,31,32,33,34,],[5,5,-3,-2,-10,-4,-5,-6,-7,-8,-9,-11,]),'TRANSLATE':([0,2,3,12,19,28,29,30,31,32,33,34,],[6,6,-3,-2,-10,-4,-5,-6,-7,-8,-9,-11,]),'REVERSE':([0,2,3,12,19,28,29,30,31,32,33,34,],[7,7,-3,-2,-10,-4,-5,-6,-7,-8,-9,-11,]),'COMPLEMENT':([0,2,3,12,19,28,29,30,31,32,33,34,],[8,8,-3,-2,-10,-4,-5,-6,-7,-8,-9,-11,]),'GC':([0,2,3,12,19,28,29,30,31,32,33,34,],[9,9,-3,-2,-10,-4,-5,-6,-7,-8,-9,-11,]),'PRINT':([0,2,3,12,19,28,29,30,31,32,33,34,],[10,10,-3,-2,-10,-4,-5,-6,-7,-8,-9,-11,]),'LOAD':([0,2,3,12,19,28,29,30,31,32,33,34,],[11,11,-3,-2,-10,-4,-5,-6,-7,-8,-9,-11,]),'$end':([1,2,3,12,19,28,29,30,31,32,33,34,],[0,-1,-3,-2,-10,-4,-5,-6,-7,-8,-9,-11,]),'IDENTIFIER':([4,5,6,7,8,9,10,22,23,24,25,26,27,],[13,14,15,16,17,18,19,29,30,31,32,33,34,]),'STRING':([11,21,],[20,28,]),'ASSIGN':([13,],[21,]),'ARROW':([14,15,16,17,18,20,],[22,23,24,25,26,27,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'program':([0,],[1,]),'statements':([0,],[2,]),'statement':([0,2,],[3,11,]),}
+_lr_goto_items = {'program':([0,],[1,]),'statements':([0,],[2,]),'statement':([0,2,],[3,12,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -37,4 +37,5 @@ _lr_productions = [
   ('statement -> COMPLEMENT IDENTIFIER ARROW IDENTIFIER','statement',4,'p_statement_complement','parser.py',97),
   ('statement -> GC IDENTIFIER ARROW IDENTIFIER','statement',4,'p_statement_gc','parser.py',108),
   ('statement -> PRINT IDENTIFIER','statement',2,'p_statement_print','parser.py',119),
+  ('statement -> LOAD STRING ARROW IDENTIFIER','statement',4,'p_statement_load','parser.py',127),
 ]

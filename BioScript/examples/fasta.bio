@@ -1,11 +1,11 @@
 load "examples/gene.fasta" -> dna
 
-gc dna -> gcvalue
+transcribe dna -> rna
 
 translate dna -> protein
 
+gc dna -> gcvalue
+
 print dna
-
 print protein
-
 print gcvalue
