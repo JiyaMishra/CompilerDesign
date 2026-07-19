@@ -1,0 +1,352 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statements
+Rule 2     statements -> statements statement
+Rule 3     statements -> statement
+Rule 4     statement -> SEQUENCE IDENTIFIER ASSIGN STRING
+Rule 5     statement -> TRANSCRIBE IDENTIFIER ARROW IDENTIFIER
+Rule 6     statement -> TRANSLATE IDENTIFIER ARROW IDENTIFIER
+Rule 7     statement -> REVERSE IDENTIFIER ARROW IDENTIFIER
+Rule 8     statement -> COMPLEMENT IDENTIFIER ARROW IDENTIFIER
+Rule 9     statement -> GC IDENTIFIER ARROW IDENTIFIER
+Rule 10    statement -> PRINT IDENTIFIER
+
+Terminals, with rules where they appear
+
+ARROW                : 5 6 7 8 9
+ASSIGN               : 4
+COMPLEMENT           : 8
+GC                   : 9
+IDENTIFIER           : 4 5 5 6 6 7 7 8 8 9 9 10
+PRINT                : 10
+REVERSE              : 7
+SEQUENCE             : 4
+STRING               : 4
+TRANSCRIBE           : 5
+TRANSLATE            : 6
+error                : 
+
+Nonterminals, with rules where they appear
+
+program              : 0
+statement            : 2 3
+statements           : 1 2
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statements
+    (2) statements -> . statements statement
+    (3) statements -> . statement
+    (4) statement -> . SEQUENCE IDENTIFIER ASSIGN STRING
+    (5) statement -> . TRANSCRIBE IDENTIFIER ARROW IDENTIFIER
+    (6) statement -> . TRANSLATE IDENTIFIER ARROW IDENTIFIER
+    (7) statement -> . REVERSE IDENTIFIER ARROW IDENTIFIER
+    (8) statement -> . COMPLEMENT IDENTIFIER ARROW IDENTIFIER
+    (9) statement -> . GC IDENTIFIER ARROW IDENTIFIER
+    (10) statement -> . PRINT IDENTIFIER
+
+    SEQUENCE        shift and go to state 4
+    TRANSCRIBE      shift and go to state 5
+    TRANSLATE       shift and go to state 6
+    REVERSE         shift and go to state 7
+    COMPLEMENT      shift and go to state 8
+    GC              shift and go to state 9
+    PRINT           shift and go to state 10
+
+    program                        shift and go to state 1
+    statements                     shift and go to state 2
+    statement                      shift and go to state 3
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statements .
+    (2) statements -> statements . statement
+    (4) statement -> . SEQUENCE IDENTIFIER ASSIGN STRING
+    (5) statement -> . TRANSCRIBE IDENTIFIER ARROW IDENTIFIER
+    (6) statement -> . TRANSLATE IDENTIFIER ARROW IDENTIFIER
+    (7) statement -> . REVERSE IDENTIFIER ARROW IDENTIFIER
+    (8) statement -> . COMPLEMENT IDENTIFIER ARROW IDENTIFIER
+    (9) statement -> . GC IDENTIFIER ARROW IDENTIFIER
+    (10) statement -> . PRINT IDENTIFIER
+
+    $end            reduce using rule 1 (program -> statements .)
+    SEQUENCE        shift and go to state 4
+    TRANSCRIBE      shift and go to state 5
+    TRANSLATE       shift and go to state 6
+    REVERSE         shift and go to state 7
+    COMPLEMENT      shift and go to state 8
+    GC              shift and go to state 9
+    PRINT           shift and go to state 10
+
+    statement                      shift and go to state 11
+
+state 3
+
+    (3) statements -> statement .
+
+    SEQUENCE        reduce using rule 3 (statements -> statement .)
+    TRANSCRIBE      reduce using rule 3 (statements -> statement .)
+    TRANSLATE       reduce using rule 3 (statements -> statement .)
+    REVERSE         reduce using rule 3 (statements -> statement .)
+    COMPLEMENT      reduce using rule 3 (statements -> statement .)
+    GC              reduce using rule 3 (statements -> statement .)
+    PRINT           reduce using rule 3 (statements -> statement .)
+    $end            reduce using rule 3 (statements -> statement .)
+
+
+state 4
+
+    (4) statement -> SEQUENCE . IDENTIFIER ASSIGN STRING
+
+    IDENTIFIER      shift and go to state 12
+
+
+state 5
+
+    (5) statement -> TRANSCRIBE . IDENTIFIER ARROW IDENTIFIER
+
+    IDENTIFIER      shift and go to state 13
+
+
+state 6
+
+    (6) statement -> TRANSLATE . IDENTIFIER ARROW IDENTIFIER
+
+    IDENTIFIER      shift and go to state 14
+
+
+state 7
+
+    (7) statement -> REVERSE . IDENTIFIER ARROW IDENTIFIER
+
+    IDENTIFIER      shift and go to state 15
+
+
+state 8
+
+    (8) statement -> COMPLEMENT . IDENTIFIER ARROW IDENTIFIER
+
+    IDENTIFIER      shift and go to state 16
+
+
+state 9
+
+    (9) statement -> GC . IDENTIFIER ARROW IDENTIFIER
+
+    IDENTIFIER      shift and go to state 17
+
+
+state 10
+
+    (10) statement -> PRINT . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 18
+
+
+state 11
+
+    (2) statements -> statements statement .
+
+    SEQUENCE        reduce using rule 2 (statements -> statements statement .)
+    TRANSCRIBE      reduce using rule 2 (statements -> statements statement .)
+    TRANSLATE       reduce using rule 2 (statements -> statements statement .)
+    REVERSE         reduce using rule 2 (statements -> statements statement .)
+    COMPLEMENT      reduce using rule 2 (statements -> statements statement .)
+    GC              reduce using rule 2 (statements -> statements statement .)
+    PRINT           reduce using rule 2 (statements -> statements statement .)
+    $end            reduce using rule 2 (statements -> statements statement .)
+
+
+state 12
+
+    (4) statement -> SEQUENCE IDENTIFIER . ASSIGN STRING
+
+    ASSIGN          shift and go to state 19
+
+
+state 13
+
+    (5) statement -> TRANSCRIBE IDENTIFIER . ARROW IDENTIFIER
+
+    ARROW           shift and go to state 20
+
+
+state 14
+
+    (6) statement -> TRANSLATE IDENTIFIER . ARROW IDENTIFIER
+
+    ARROW           shift and go to state 21
+
+
+state 15
+
+    (7) statement -> REVERSE IDENTIFIER . ARROW IDENTIFIER
+
+    ARROW           shift and go to state 22
+
+
+state 16
+
+    (8) statement -> COMPLEMENT IDENTIFIER . ARROW IDENTIFIER
+
+    ARROW           shift and go to state 23
+
+
+state 17
+
+    (9) statement -> GC IDENTIFIER . ARROW IDENTIFIER
+
+    ARROW           shift and go to state 24
+
+
+state 18
+
+    (10) statement -> PRINT IDENTIFIER .
+
+    SEQUENCE        reduce using rule 10 (statement -> PRINT IDENTIFIER .)
+    TRANSCRIBE      reduce using rule 10 (statement -> PRINT IDENTIFIER .)
+    TRANSLATE       reduce using rule 10 (statement -> PRINT IDENTIFIER .)
+    REVERSE         reduce using rule 10 (statement -> PRINT IDENTIFIER .)
+    COMPLEMENT      reduce using rule 10 (statement -> PRINT IDENTIFIER .)
+    GC              reduce using rule 10 (statement -> PRINT IDENTIFIER .)
+    PRINT           reduce using rule 10 (statement -> PRINT IDENTIFIER .)
+    $end            reduce using rule 10 (statement -> PRINT IDENTIFIER .)
+
+
+state 19
+
+    (4) statement -> SEQUENCE IDENTIFIER ASSIGN . STRING
+
+    STRING          shift and go to state 25
+
+
+state 20
+
+    (5) statement -> TRANSCRIBE IDENTIFIER ARROW . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 26
+
+
+state 21
+
+    (6) statement -> TRANSLATE IDENTIFIER ARROW . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 27
+
+
+state 22
+
+    (7) statement -> REVERSE IDENTIFIER ARROW . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 28
+
+
+state 23
+
+    (8) statement -> COMPLEMENT IDENTIFIER ARROW . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 29
+
+
+state 24
+
+    (9) statement -> GC IDENTIFIER ARROW . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 30
+
+
+state 25
+
+    (4) statement -> SEQUENCE IDENTIFIER ASSIGN STRING .
+
+    SEQUENCE        reduce using rule 4 (statement -> SEQUENCE IDENTIFIER ASSIGN STRING .)
+    TRANSCRIBE      reduce using rule 4 (statement -> SEQUENCE IDENTIFIER ASSIGN STRING .)
+    TRANSLATE       reduce using rule 4 (statement -> SEQUENCE IDENTIFIER ASSIGN STRING .)
+    REVERSE         reduce using rule 4 (statement -> SEQUENCE IDENTIFIER ASSIGN STRING .)
+    COMPLEMENT      reduce using rule 4 (statement -> SEQUENCE IDENTIFIER ASSIGN STRING .)
+    GC              reduce using rule 4 (statement -> SEQUENCE IDENTIFIER ASSIGN STRING .)
+    PRINT           reduce using rule 4 (statement -> SEQUENCE IDENTIFIER ASSIGN STRING .)
+    $end            reduce using rule 4 (statement -> SEQUENCE IDENTIFIER ASSIGN STRING .)
+
+
+state 26
+
+    (5) statement -> TRANSCRIBE IDENTIFIER ARROW IDENTIFIER .
+
+    SEQUENCE        reduce using rule 5 (statement -> TRANSCRIBE IDENTIFIER ARROW IDENTIFIER .)
+    TRANSCRIBE      reduce using rule 5 (statement -> TRANSCRIBE IDENTIFIER ARROW IDENTIFIER .)
+    TRANSLATE       reduce using rule 5 (statement -> TRANSCRIBE IDENTIFIER ARROW IDENTIFIER .)
+    REVERSE         reduce using rule 5 (statement -> TRANSCRIBE IDENTIFIER ARROW IDENTIFIER .)
+    COMPLEMENT      reduce using rule 5 (statement -> TRANSCRIBE IDENTIFIER ARROW IDENTIFIER .)
+    GC              reduce using rule 5 (statement -> TRANSCRIBE IDENTIFIER ARROW IDENTIFIER .)
+    PRINT           reduce using rule 5 (statement -> TRANSCRIBE IDENTIFIER ARROW IDENTIFIER .)
+    $end            reduce using rule 5 (statement -> TRANSCRIBE IDENTIFIER ARROW IDENTIFIER .)
+
+
+state 27
+
+    (6) statement -> TRANSLATE IDENTIFIER ARROW IDENTIFIER .
+
+    SEQUENCE        reduce using rule 6 (statement -> TRANSLATE IDENTIFIER ARROW IDENTIFIER .)
+    TRANSCRIBE      reduce using rule 6 (statement -> TRANSLATE IDENTIFIER ARROW IDENTIFIER .)
+    TRANSLATE       reduce using rule 6 (statement -> TRANSLATE IDENTIFIER ARROW IDENTIFIER .)
+    REVERSE         reduce using rule 6 (statement -> TRANSLATE IDENTIFIER ARROW IDENTIFIER .)
+    COMPLEMENT      reduce using rule 6 (statement -> TRANSLATE IDENTIFIER ARROW IDENTIFIER .)
+    GC              reduce using rule 6 (statement -> TRANSLATE IDENTIFIER ARROW IDENTIFIER .)
+    PRINT           reduce using rule 6 (statement -> TRANSLATE IDENTIFIER ARROW IDENTIFIER .)
+    $end            reduce using rule 6 (statement -> TRANSLATE IDENTIFIER ARROW IDENTIFIER .)
+
+
+state 28
+
+    (7) statement -> REVERSE IDENTIFIER ARROW IDENTIFIER .
+
+    SEQUENCE        reduce using rule 7 (statement -> REVERSE IDENTIFIER ARROW IDENTIFIER .)
+    TRANSCRIBE      reduce using rule 7 (statement -> REVERSE IDENTIFIER ARROW IDENTIFIER .)
+    TRANSLATE       reduce using rule 7 (statement -> REVERSE IDENTIFIER ARROW IDENTIFIER .)
+    REVERSE         reduce using rule 7 (statement -> REVERSE IDENTIFIER ARROW IDENTIFIER .)
+    COMPLEMENT      reduce using rule 7 (statement -> REVERSE IDENTIFIER ARROW IDENTIFIER .)
+    GC              reduce using rule 7 (statement -> REVERSE IDENTIFIER ARROW IDENTIFIER .)
+    PRINT           reduce using rule 7 (statement -> REVERSE IDENTIFIER ARROW IDENTIFIER .)
+    $end            reduce using rule 7 (statement -> REVERSE IDENTIFIER ARROW IDENTIFIER .)
+
+
+state 29
+
+    (8) statement -> COMPLEMENT IDENTIFIER ARROW IDENTIFIER .
+
+    SEQUENCE        reduce using rule 8 (statement -> COMPLEMENT IDENTIFIER ARROW IDENTIFIER .)
+    TRANSCRIBE      reduce using rule 8 (statement -> COMPLEMENT IDENTIFIER ARROW IDENTIFIER .)
+    TRANSLATE       reduce using rule 8 (statement -> COMPLEMENT IDENTIFIER ARROW IDENTIFIER .)
+    REVERSE         reduce using rule 8 (statement -> COMPLEMENT IDENTIFIER ARROW IDENTIFIER .)
+    COMPLEMENT      reduce using rule 8 (statement -> COMPLEMENT IDENTIFIER ARROW IDENTIFIER .)
+    GC              reduce using rule 8 (statement -> COMPLEMENT IDENTIFIER ARROW IDENTIFIER .)
+    PRINT           reduce using rule 8 (statement -> COMPLEMENT IDENTIFIER ARROW IDENTIFIER .)
+    $end            reduce using rule 8 (statement -> COMPLEMENT IDENTIFIER ARROW IDENTIFIER .)
+
+
+state 30
+
+    (9) statement -> GC IDENTIFIER ARROW IDENTIFIER .
+
+    SEQUENCE        reduce using rule 9 (statement -> GC IDENTIFIER ARROW IDENTIFIER .)
+    TRANSCRIBE      reduce using rule 9 (statement -> GC IDENTIFIER ARROW IDENTIFIER .)
+    TRANSLATE       reduce using rule 9 (statement -> GC IDENTIFIER ARROW IDENTIFIER .)
+    REVERSE         reduce using rule 9 (statement -> GC IDENTIFIER ARROW IDENTIFIER .)
+    COMPLEMENT      reduce using rule 9 (statement -> GC IDENTIFIER ARROW IDENTIFIER .)
+    GC              reduce using rule 9 (statement -> GC IDENTIFIER ARROW IDENTIFIER .)
+    PRINT           reduce using rule 9 (statement -> GC IDENTIFIER ARROW IDENTIFIER .)
+    $end            reduce using rule 9 (statement -> GC IDENTIFIER ARROW IDENTIFIER .)
+
