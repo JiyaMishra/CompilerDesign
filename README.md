@@ -104,6 +104,9 @@ BioScript/
 Each compiler phase lives in its own file on purpose. If you want to understand parsing, you open `parser.py` and nothing else is competing for your attention.
 
 ---
+<img width="268" height="769" alt="Screenshot 2026-07-19 at 3 28 56 PM" src="https://github.com/user-attachments/assets/7370650e-8e3b-400d-bd02-0e5e50353609" />
+
+
 
 ## Walking through each compiler phase
 
