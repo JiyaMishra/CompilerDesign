@@ -1,0 +1,23 @@
+sequence dna = "ATGCGTACC"
+
+transcribe dna -> rna
+
+translate dna -> protein
+
+reverse dna -> rev
+
+complement dna -> comp
+
+gc dna -> gcvalue
+
+print dna
+
+print rna
+
+print protein
+
+print rev
+
+print comp
+
+print gcvalue

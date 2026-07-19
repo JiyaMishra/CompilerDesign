@@ -1,8 +1,3 @@
-import sys
-import os
-
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 from runtime.bioscript_runtime import *
 
 dna = create_sequence("ATGCGTACC")
