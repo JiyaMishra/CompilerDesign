@@ -122,6 +122,16 @@ def p_statement_print(p):
         "print",
         value=p[2]
     )
+def p_statement_load(p):
+    '''
+    statement : LOAD STRING ARROW IDENTIFIER
+    '''
+
+    p[0] = Node(
+        "load",
+        filename=p[2],
+        target=p[4]
+    )
 
 
 # ----------------------------------------

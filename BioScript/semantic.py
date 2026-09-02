@@ -1,3 +1,4 @@
+import os 
 from symbol_table import SymbolTable
 
 
@@ -132,6 +133,17 @@ class SemanticAnalyzer:
             raise Exception(
                 f"Variable '{node.value}' not declared."
             )
+    def visit_load(self, node):
+
+      if not os.path.exists(node.filename):
+        raise Exception(
+            f"FASTA file '{node.filename}' not found."
+        )
+
+      self.symbol_table.insert(
+        node.target,
+        "sequence"
+    )
 if __name__ == "__main__":
 
     from parser import parser

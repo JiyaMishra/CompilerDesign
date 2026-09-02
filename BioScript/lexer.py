@@ -10,7 +10,8 @@ reserved = {
     'reverse': 'REVERSE',
     'complement': 'COMPLEMENT',
     'gc': 'GC',
-    'print': 'PRINT'
+    'print': 'PRINT',
+    'load': 'LOAD'
 }
 
 # -----------------------------
