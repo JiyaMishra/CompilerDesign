@@ -2,59 +2,44 @@ from Bio.Seq import Seq
 from Bio import SeqIO
 
 
-# -----------------------------------------
-# Create DNA Sequence
-# -----------------------------------------
+
 def create_sequence(sequence):
 
     return Seq(sequence)
 
 
-# -----------------------------------------
-# DNA → RNA
-# -----------------------------------------
+
 def transcribe(sequence):
 
     return sequence.transcribe()
 
 
-# -----------------------------------------
-# DNA → Protein
-# -----------------------------------------
+
 def translate(sequence):
 
     trimmed = sequence[:len(sequence) - (len(sequence) % 3)]
     return trimmed.translate()
 
 
-# -----------------------------------------
-# Reverse Sequence
-# -----------------------------------------
+
 def reverse(sequence):
 
     return sequence[::-1]
 
 
-# -----------------------------------------
-# Complement
-# -----------------------------------------
+
 def complement(sequence):
 
     return sequence.complement()
 
 
-# -----------------------------------------
-# Reverse Complement
-# (Nice extra feature)
-# -----------------------------------------
+
 def reverse_complement(sequence):
 
     return sequence.reverse_complement()
 
 
-# -----------------------------------------
-# GC Content
-# -----------------------------------------
+
 def gc_content(sequence):
 
     sequence = str(sequence)

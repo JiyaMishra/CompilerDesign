@@ -2,9 +2,7 @@ import ply.yacc as yacc
 
 from lexer import tokens
 
-# ----------------------------------------
-# AST Node
-# ----------------------------------------
+
 
 class Node:
     def __init__(self, node_type, **kwargs):
@@ -15,9 +13,7 @@ class Node:
         return f"{self.type}({self.__dict__})"
 
 
-# ----------------------------------------
-# Program
-# ----------------------------------------
+
 
 def p_program(p):
     '''
@@ -26,9 +22,7 @@ def p_program(p):
     p[0] = p[1]
 
 
-# ----------------------------------------
-# Multiple Statements
-# ----------------------------------------
+
 
 def p_statements_multiple(p):
     '''
@@ -44,9 +38,8 @@ def p_statements_single(p):
     p[0] = [p[1]]
 
 
-# ----------------------------------------
-# Statements
-# ----------------------------------------
+
+
 
 def p_statement_sequence(p):
     '''
@@ -134,9 +127,6 @@ def p_statement_load(p):
     )
 
 
-# ----------------------------------------
-# Error Handling
-# ----------------------------------------
 
 def p_error(p):
 
@@ -147,16 +137,12 @@ def p_error(p):
         print("Syntax error at EOF")
 
 
-# ----------------------------------------
-# Build Parser
-# ----------------------------------------
+
 
 parser = yacc.yacc()
 
 
-# ----------------------------------------
-# Test Parser
-# ----------------------------------------
+
 
 if __name__ == "__main__":
 

@@ -5,7 +5,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from runtime.bioscript_runtime import *
 
-dna = load_fasta("examples/gene.fasta")
+dna = create_sequence("ATGCGTACC")
 rna = transcribe(dna)
 protein = translate(dna)
 rev = reverse(dna)

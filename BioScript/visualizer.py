@@ -35,9 +35,7 @@ from semantic import SemanticAnalyzer
 from ir import IRGenerator
 
 
-# --------------------------------------------------
-# Output directory
-# --------------------------------------------------
+
 
 OUTPUT_DIR = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
@@ -64,9 +62,7 @@ def save_figure(fig, filename):
     print(f"Created: {path}")
 
 
-# --------------------------------------------------
-# AST Visualization
-# --------------------------------------------------
+
 
 def render_ast(ast):
 
@@ -95,8 +91,7 @@ def render_ast(ast):
             statement_id
         )
 
-        # Every Node stores its data directly
-        # inside __dict__.
+       
         for attr_index, (key, value) in enumerate(
             node.__dict__.items(),
             start=1
@@ -127,13 +122,7 @@ def render_ast(ast):
                 attribute_id
             )
 
-    # --------------------------------------------------
-    # Position nodes manually.
-    #
-    # This is intentional because the project's AST
-    # is a flat list of Node objects rather than a
-    # recursive tree.
-    # --------------------------------------------------
+    
 
     pos = {
         root: (0, 0)
@@ -186,7 +175,7 @@ def render_ast(ast):
                 child_y
             )
 
-    # Safety fallback
+   
     for node in attribute_nodes:
 
         if node not in pos:
@@ -225,7 +214,7 @@ def render_ast(ast):
         if data["kind"] == "attribute"
     ]
 
-    # Edges
+    
     nx.draw_networkx_edges(
         graph,
         pos,
@@ -236,7 +225,7 @@ def render_ast(ast):
         node_size=0
     )
 
-    # Program node
+    
     nx.draw_networkx_nodes(
         graph,
         pos,
@@ -247,7 +236,7 @@ def render_ast(ast):
         ax=ax
     )
 
-    # Statement nodes
+  
     nx.draw_networkx_nodes(
         graph,
         pos,
@@ -258,7 +247,7 @@ def render_ast(ast):
         ax=ax
     )
 
-    # Attribute nodes
+    
     nx.draw_networkx_nodes(
         graph,
         pos,
@@ -295,9 +284,7 @@ def render_ast(ast):
     )
 
 
-# --------------------------------------------------
-# Symbol Table Visualization
-# --------------------------------------------------
+
 
 def render_symbol_table(symbol_table):
 
@@ -375,9 +362,7 @@ def render_symbol_table(symbol_table):
     )
 
 
-# --------------------------------------------------
-# IR Visualization
-# --------------------------------------------------
+
 
 def render_ir(instructions):
 
@@ -525,9 +510,7 @@ def render_ir(instructions):
     )
 
 
-# --------------------------------------------------
-# Pipeline Visualization
-# --------------------------------------------------
+
 
 def render_pipeline():
 
@@ -616,9 +599,7 @@ def render_pipeline():
     )
 
 
-# --------------------------------------------------
-# Main Visualization Process
-# --------------------------------------------------
+
 
 def build_visualizations(filename):
 
@@ -640,9 +621,7 @@ def build_visualizations(filename):
         f"Source: {filename}\n"
     )
 
-    # -----------------------------
-    # Parsing
-    # -----------------------------
+    
 
     print("Parsing source...")
 
@@ -658,9 +637,7 @@ def build_visualizations(filename):
         f"AST created: {len(ast)} statement(s)"
     )
 
-    # -----------------------------
-    # Semantic Analysis
-    # -----------------------------
+    
 
     print(
         "Running semantic analysis..."
@@ -675,9 +652,7 @@ def build_visualizations(filename):
         f"{len(symbol_table.table)} symbol(s)"
     )
 
-    # -----------------------------
-    # IR Generation
-    # -----------------------------
+    
 
     print("Generating IR...")
 
@@ -690,9 +665,7 @@ def build_visualizations(filename):
         f"{len(instructions)} instruction(s)\n"
     )
 
-    # -----------------------------
-    # Generate visuals
-    # -----------------------------
+  
 
     render_ast(ast)
 
@@ -715,9 +688,7 @@ def build_visualizations(filename):
     )
 
 
-# --------------------------------------------------
-# Command Line Entry Point
-# --------------------------------------------------
+
 
 def main():
 

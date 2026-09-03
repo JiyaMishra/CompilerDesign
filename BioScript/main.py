@@ -9,18 +9,14 @@ from executor import Executor
 
 def compile_bioscript(filename):
 
-    # -------------------------
-    # Read Source File
-    # -------------------------
+    
 
     with open(filename, "r") as file:
         source = file.read()
 
     print("\n========== BIOSCRIPT COMPILER ==========\n")
 
-    # -------------------------
-    # Parsing
-    # -------------------------
+    
 
     print("Parsing...")
 
@@ -28,9 +24,7 @@ def compile_bioscript(filename):
 
     print("Parsing completed.")
 
-    # -------------------------
-    # Semantic Analysis
-    # -------------------------
+   
 
     print("\nSemantic Analysis...")
 
@@ -42,9 +36,7 @@ def compile_bioscript(filename):
 
     symbol_table.display()
 
-    # -------------------------
-    # Intermediate Representation
-    # -------------------------
+    
 
     print("\nGenerating Intermediate Representation...")
 
@@ -54,9 +46,7 @@ def compile_bioscript(filename):
 
     ir.display()
 
-    # -------------------------
-    # Code Generation
-    # -------------------------
+ 
 
     print("\nGenerating Python code...")
 
@@ -68,9 +58,7 @@ def compile_bioscript(filename):
 
     print("Python code generated.")
 
-    # -------------------------
-    # Execute
-    # -------------------------
+   
 
     executor = Executor()
 

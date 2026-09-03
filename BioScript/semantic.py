@@ -7,9 +7,7 @@ class SemanticAnalyzer:
     def __init__(self):
         self.symbol_table = SymbolTable()
 
-    # -----------------------------
-    # Analyze Entire AST
-    # -----------------------------
+    
     def analyze(self, ast):
 
         for node in ast:
@@ -22,15 +20,11 @@ class SemanticAnalyzer:
 
         return self.symbol_table
 
-    # -----------------------------
-    # Default Visitor
-    # -----------------------------
+   
     def generic_visit(self, node):
         raise Exception(f"No semantic rule for {node.type}")
 
-    # -----------------------------
-    # sequence dna = "ATGC"
-    # -----------------------------
+    
     def visit_sequence(self, node):
 
         dna = node.value.upper()
@@ -49,9 +43,7 @@ class SemanticAnalyzer:
             dna
         )
 
-    # -----------------------------
-    # transcribe dna -> rna
-    # -----------------------------
+   
     def visit_transcribe(self, node):
 
         if not self.symbol_table.exists(node.source):
@@ -64,9 +56,7 @@ class SemanticAnalyzer:
             "sequence"
         )
 
-    # -----------------------------
-    # translate dna -> protein
-    # -----------------------------
+ 
     def visit_translate(self, node):
 
         if not self.symbol_table.exists(node.source):
@@ -79,9 +69,7 @@ class SemanticAnalyzer:
             "protein"
         )
 
-    # -----------------------------
-    # reverse dna -> rev
-    # -----------------------------
+    
     def visit_reverse(self, node):
 
         if not self.symbol_table.exists(node.source):
@@ -94,9 +82,7 @@ class SemanticAnalyzer:
             "sequence"
         )
 
-    # -----------------------------
-    # complement dna -> comp
-    # -----------------------------
+    
     def visit_complement(self, node):
 
         if not self.symbol_table.exists(node.source):
@@ -109,9 +95,7 @@ class SemanticAnalyzer:
             "sequence"
         )
 
-    # -----------------------------
-    # gc dna -> gcvalue
-    # -----------------------------
+   
     def visit_gc(self, node):
 
         if not self.symbol_table.exists(node.source):
@@ -124,9 +108,6 @@ class SemanticAnalyzer:
             "float"
         )
 
-    # -----------------------------
-    # print dna
-    # -----------------------------
     def visit_print(self, node):
 
         if not self.symbol_table.exists(node.value):

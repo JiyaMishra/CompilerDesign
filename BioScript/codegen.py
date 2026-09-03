@@ -5,14 +5,12 @@ class CodeGenerator:
     def __init__(self):
         self.lines = []
 
-    # -----------------------------------------
-    # Generate Python Code from AST
-    # -----------------------------------------
+    
     def generate(self, ast):
 
         self.lines = []
 
-        # Runtime import
+        
         self.lines.append("import sys")
         self.lines.append("import os")
         self.lines.append("")
@@ -32,49 +30,37 @@ class CodeGenerator:
 
         return "\n".join(self.lines)
 
-    # -----------------------------------------
-    # sequence dna = "ATGC"
-    # -----------------------------------------
+   
     def visit_sequence(self, node):
         self.lines.append(
             f'{node.name} = create_sequence("{node.value}")'
         )
 
-    # -----------------------------------------
-    # transcribe dna -> rna
-    # -----------------------------------------
+    
     def visit_transcribe(self, node):
         self.lines.append(
             f"{node.target} = transcribe({node.source})"
         )
 
-    # -----------------------------------------
-    # translate dna -> protein
-    # -----------------------------------------
+  
     def visit_translate(self, node):
         self.lines.append(
             f"{node.target} = translate({node.source})"
         )
 
-    # -----------------------------------------
-    # reverse dna -> rev
-    # -----------------------------------------
+    
     def visit_reverse(self, node):
         self.lines.append(
             f"{node.target} = reverse({node.source})"
         )
 
-    # -----------------------------------------
-    # complement dna -> comp
-    # -----------------------------------------
+    
     def visit_complement(self, node):
         self.lines.append(
             f"{node.target} = complement({node.source})"
         )
 
-    # -----------------------------------------
-    # gc dna -> gcvalue
-    # -----------------------------------------
+    
     def visit_gc(self, node):
         self.lines.append(
             f"{node.target} = gc_content({node.source})"
@@ -84,17 +70,13 @@ class CodeGenerator:
       self.lines.append(
         f'{node.target} = load_fasta("{node.filename}")'
     )
-    # -----------------------------------------
-    # print variable
-    # -----------------------------------------
+    
     def visit_print(self, node):
         self.lines.append(
             f'print("{node.value} =", {node.value})'
         )
 
-    # -----------------------------------------
-    # Save generated Python
-    # -----------------------------------------
+ 
     def save(self, filename="output.py"):
 
      generated_folder = os.path.join(
@@ -118,9 +100,7 @@ class CodeGenerator:
     
 
 
-# ------------------------------------------------
-# Testing
-# ------------------------------------------------
+
 
 if __name__ == "__main__":
 
@@ -152,14 +132,14 @@ if __name__ == "__main__":
     print gcvalue
     """
 
-    # Parse
+    
     ast = parser.parse(code)
 
-    # Semantic Analysis
+    
     analyzer = SemanticAnalyzer()
     analyzer.analyze(ast)
 
-    # Code Generation
+    
     generator = CodeGenerator()
 
     generated_code = generator.generate(ast)
@@ -167,5 +147,5 @@ if __name__ == "__main__":
     print("\n========== GENERATED PYTHON ==========\n")
     print(generated_code)
 
-    # Save generated file
+    
     generator.save()
